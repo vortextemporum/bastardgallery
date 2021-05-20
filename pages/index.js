@@ -36,7 +36,7 @@ export default function Home() {
 
 
   return (
-    <div className="flex">
+    <div className="flex flex-wrap">
       <SideBar bastardnessTypes={bastardnessTypes}/>
       <Gallery bastards={bastards}/>
     </div>

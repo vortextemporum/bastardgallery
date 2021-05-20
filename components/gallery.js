@@ -8,7 +8,7 @@ export default function Gallery({bastards}) {
       <>
       <Background />
 
-      <div className="charriot overflow-y-auto flex flex-wrap h-screen justify-around  w-3/4 relative inline-block">
+      <div className="charriot overflow-y-auto flex flex-wrap h-screen justify-around  w-full sm:w-3/4  relative inline-block">
           {
               bastards.slice(0,99).map(bastard => {
                 // console.log(bastard)

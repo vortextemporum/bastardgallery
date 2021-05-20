@@ -1,9 +1,9 @@
 export default function SideBar({bastardnessTypes}) {
     console.log(bastardnessTypes)
     return (
-        <div className="flex flex-col w-1/4 max-h-screen charriot overflow-y-auto relative inline-block bg-pink-600 bg-opacity-90 border-red-500">
+        <div className="flex flex-col  w-full sm:w-1/4 max-h-screen charriot overflow-y-auto relative inline-block bg-pink-600 bg-opacity-90 border-red-500">
 
-            <p className="text-4xl text-center py-8 text-pink-200">FILTER BY:</p>
+            <p className="text-4xl text-center py-8 text-pink-200 underline">FILTER BY:</p>
 
             <main className="w-full mx-auto bg-red-500">
                 <section className="shadow row">
