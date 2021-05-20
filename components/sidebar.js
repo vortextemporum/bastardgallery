@@ -93,7 +93,7 @@ export default function SideBar({bastardnessTypes}) {
 
             
 
-            <p className="text-2xl text-center  font-boldest bg-green-300 py-4">CALM AF TRAITS:</p>
+            <p className="text-2xl text-center  font-bold underline bg-green-300 py-4">CALM AF TRAITS:</p>
 
 
             <main className="w-full mx-auto bg-yellow-200">
@@ -206,7 +206,7 @@ export default function SideBar({bastardnessTypes}) {
 
                 </section>
             </main>
-            <p className="text-2xl text-center  font-boldest bg-green-300 py-4">HYPED AF TRAITS:</p>
+            <p className="text-2xl text-center  font-bold underline bg-green-300 py-4">HYPED AF TRAITS:</p>
 
 
             <main className="w-full mx-auto bg-yellow-200">
@@ -283,7 +283,7 @@ export default function SideBar({bastardnessTypes}) {
                 </section>
             </main>
 
-            <main className="w-full mx-auto bg-pink-200">
+            <main className="w-full mx-auto bg-blue-300">
                 <section className="shadow row">
                     <div className="tabs">
                         <div className="border-b tab">
@@ -319,7 +319,7 @@ export default function SideBar({bastardnessTypes}) {
 
                 </section>
             </main>
-            <main className="w-full mx-auto bg-pink-200">
+            <main className="w-full mx-auto bg-red-400">
                 <section className="shadow row">
                     <div className="tabs">
                         <div className="border-b tab">

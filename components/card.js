@@ -1,3 +1,5 @@
+import LazyLoad from 'react-lazyload';
+
 export default function Card({bas}) {
     // console.log(bas)
     return (
@@ -7,15 +9,23 @@ export default function Card({bas}) {
           <div className="flex flex-col justify-center">
             <div className="mx-auto">
               <p className="font-bold text-center bg-yellow-300">#{bas.tokenId}</p>
+              <LazyLoad
+                height="280px"
+                offset={300}
+                placeholder={<img src="/loading.gif" style={{"width": "280px","height": "280px"}}/>}
+                overflow
+                once
+              >
               <img src={bas.image} style={{"width": "280px","height": "280px"}}/>
+              </LazyLoad>
               <div className="mx-auto my-auto w-full font-bold">
                 <div className="bg-blue-200 p-2 ">
                   {/* <span className="text-sm font-bold underline ">HYPE TYPE:</span>  */}
-                  <p className="text-sm text-center">{bas.attributes[0].value}</p>
+                  <p className=" text-center">{bas.attributes[0].value}</p>
                 </div>
                 <div className="bg-yellow-200 p-2 ">
                 {/* <p className="text-sm underline font-bold">BASTARDNESS:</p>  */}
-                <p className="text-sm text-center">{bas.attributes[1].value}</p>
+                <p className=" text-center">{bas.attributes[1].value}</p>
                 </div>
 
               </div>
@@ -26,7 +36,7 @@ export default function Card({bas}) {
                             <div className="border-l-2 border-transparent relative">
                                 <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
                                 <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
-                                    <span className="text-grey-darkesttext-sm">
+                                    <span className="font-bold">
                                         BASTARD LYRICS
                                     </span>
                                     <div className="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">

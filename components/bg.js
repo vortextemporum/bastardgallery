@@ -1,6 +1,12 @@
 import Particles from 'react-particles-js';
+import {useState, useEffect} from "react";
+
+// useState
+
+// make a function to return 20 random calm af bastards
 
 export default function Background() {
+
     // console.log(bas)
     return (
         <Particles

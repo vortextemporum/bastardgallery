@@ -7,10 +7,11 @@ export default function Gallery({bastards}) {
     return (
       <>
       <Background />
-
+      
       <div className="charriot overflow-y-auto flex flex-wrap h-screen justify-around  w-full sm:w-3/4  relative inline-block">
+        
           {
-              bastards.slice(0,99).map(bastard => {
+              bastards.slice(0,999).map(bastard => {
                 // console.log(bastard)
                 return <Card bas={bastard} key={bastard.tokenId}/>
                
@@ -18,7 +19,6 @@ export default function Gallery({bastards}) {
               })
 
           }
-        
       </div>
       </>
     )
