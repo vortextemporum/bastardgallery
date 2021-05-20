@@ -4,10 +4,10 @@ export default function Card({bas}) {
       <div className="border-8 flex flex-col justify-around p-2 m-2 bg-red-500" style={{"width": "300px"}}>
           
           
-          <div className="flex flex-col ">
+          <div className="flex flex-col justify-center">
             <div className="mx-auto">
-              <p className="font-bold text-center bg-yellow-300" style={{"width": "250px"}}>#{bas.tokenId}</p>
-              <img src={bas.image} style={{"width": "250px","height": "250px"}}/>
+              <p className="font-bold text-center bg-yellow-300">#{bas.tokenId}</p>
+              <img src={bas.image} style={{"width": "280px","height": "280px"}}/>
               <div className="mx-auto my-auto w-full font-bold">
                 <div className="bg-blue-200 p-2 ">
                   {/* <span className="text-sm font-bold underline ">HYPE TYPE:</span>  */}
@@ -19,30 +19,55 @@ export default function Card({bas}) {
                 </div>
 
               </div>
-              <div className="p-2">
+              <main className="w-full mx-auto bg-pink-200">
+                <section className="shadow row">
+                    <div className="tabs">
+                        <div className="border-b tab">
+                            <div className="border-l-2 border-transparent relative">
+                                <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
+                                <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
+                                    <span className="text-grey-darkesttext-sm">
+                                        BASTARD LYRICS
+                                    </span>
+                                    <div className="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
+                                        <svg aria-hidden="true" className="" data-reactid="266" fill="none" height="24" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <polyline points="6 9 12 15 18 9">
+                                            </polyline>
+                                        </svg>
+                                    </div>
+                                </header>
+                                <div className="tab-content">
+                                    <div className="text-grey-darkest p-2">
+                                      <span className="text-sm  text-pink-800" style={{whiteSpace: "pre-wrap"}}>{bas.description}</span>
 
-                <span className="text-sm " style={{whiteSpace: "pre-wrap"}}>{bas.description}</span>
-              </div>
+                                       
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </section>
+            </main>
+              {/* <div className="p-2 bg-pinku">
+
+                <span className="text-sm  text-pink-800" style={{whiteSpace: "pre-wrap"}}>{bas.description}</span>
+              </div> */}
 
             </div>
             
           </div>
           
-          <div className="my-2">
+          {/* <div className="my-2">
               <p className="text-sm ">TYPE:</p>
               <p className="text-sm ">FACE DIRECTION:</p>
               <p className="text-sm ">SOLID/GLITCH BACKGROUND:</p>
-              {/* {
-                (bas.attributes[0].value == "CALM AF (STILL)"? {
+        
 
-                }:{
-
-                })
-
-
-              } */}
-
-          </div>
+          </div> */}
           {/* <a className="bg-blau  text-xl text-white text-center w-full py-2" target="_blank" href={bas.image}>Show Image on IPFS</a>        */}
           {/* <a className="bg-yellu text-xl text-black text-center w-full py-2" target="_blank" href={bas.imageArweave}>Show Image on Arweave</a> */}
 

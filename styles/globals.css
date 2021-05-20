@@ -51,3 +51,20 @@ a {
   input:checked ~ .tab-content {
   max-height: 500vh;
   }
+
+  .bg-pinku {
+    background-color: rgba(255, 192, 203,var(--tw-bg-opacity));
+  }
+  .bg-yellu {
+    background-color: rgba(255, 223, 177,var(--tw-bg-opacity));
+  }
+  .bg-grunu {
+    background-color: rgba(177, 255, 190,var(--tw-bg-opacity));
+  }
+  .bg-orangu {
+    background-color: rgba(255, 208, 177,var(--tw-bg-opacity));
+  }
+  
+  .bg-blau {
+    background-color: rgba(41, 101, 136,var(--tw-bg-opacity));
+  }
