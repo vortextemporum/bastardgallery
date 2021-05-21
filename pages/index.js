@@ -136,6 +136,9 @@ export default function Home() {
     "HYPED AF (ANIMATED)": false,
   })
 
+  const [v1orv2, setv1v2] = useState(0);
+
+  function v1v2change(e){ e.preventDefault; setv1v2(e); console.log(e) };
 
   useEffect( 
     async () => {
@@ -169,8 +172,15 @@ export default function Home() {
 
   return (
     <div className="flex flex-wrap">
-      <SideBar bastardnessTypes={bastardnessTypes}/>
-      <Gallery bastards={bastards}/>
+      <SideBar 
+        bastardnessTypes={bastardnessTypes} 
+        v1v2change={v1v2change}
+        v1orv2={v1orv2}
+      />
+      <Gallery 
+        bastards={bastards}
+        v1orv2={v1orv2}
+      />
     </div>
   )
 }
