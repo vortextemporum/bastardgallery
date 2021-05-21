@@ -14,16 +14,11 @@ export default function SideBar({ bastardnessTypes, v1v2change,v1orv2 }) {
                     <div class="mr-3 text-gray-700 font-medium text-2xl">
                             V1
                         </div>
-                    {/* <!-- toggle --> */}
                     <div class="relative">
-                        {/* <!-- input --> */}
                         <input type="checkbox" id="toggleB" class="sr-only" defaultChecked={0} checked={v1orv2} onChange={(e) => v1v2change(e.target.checked)}/>
-                            {/* <!-- line --> */}
                             <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
-                            {/* <!-- dot --> */}
                             <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
                         </div>
-                        {/* <!-- label --> */}
                         <div class="ml-3 text-gray-700 font-medium text-2xl">
                         V2
                         </div>
@@ -32,47 +27,20 @@ export default function SideBar({ bastardnessTypes, v1v2change,v1orv2 }) {
             </div>
 
                 <p className="text-2xl text-center text-white  underline bg-green-700 py-4">BGANPUNKS V1:</p>
+                <div className="pl-8 pr-8 pb-5 text-white bg-green-700">
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+                    <label htmlFor="vehicle1"> GEN #1 BASTARDS</label><br />
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+                    <label htmlFor="vehicle2"> GEN #2: CØLØRED B·G·A·N·P·U·N·K·S</label><br />
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+                    <label htmlFor="vehicle2"> DØØMΞD DΞGΞNS </label><br />
 
-                <main className="w-full mx-auto bg-green-700">
-                    <section className="shadow row">
-                        <div className="tabs">
-                            <div className="border-b tab">
-                                <div className="border-l-2 border-transparent relative">
-                                    <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
-                                    <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
-                                        <span className="text-grey-darkest font-thin text-xl">
-                                            GENERATION
-                                    </span>
-                                        <div className="rounded-full border border-black w-7 h-7 flex items-center justify-center test">
-                                            <svg aria-hidden="true" className="" data-reactid="266" fill="none" height="24" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                                <polyline points="6 9 12 15 18 9">
-                                                </polyline>
-                                            </svg>
-                                        </div>
-                                    </header>
-                                    <div className="tab-content">
-                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest">
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label htmlFor="vehicle1"> GEN #1 BASTARDS</label><br />
-                                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-                                            <label htmlFor="vehicle2"> GEN #2 BASTARDS: CØLØRED B·G·A·N·P·U·N·K·S</label><br />
-                                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-                                            <label htmlFor="vehicle2"> DØØMΞD DΞGΞNS </label><br />
+                </div>
+               
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <p className="text-2xl text-center  font-bold underline bg-blue-500 py-4">BGANPUNKS V2:</p>
 
-
-                        </div>
-
-                    </section>
-                </main>
-
-                <p className="text-2xl text-center  font-bold underline bg-green-300 py-4">BGANPUNKS V2:</p>
-
-                <main className="w-full mx-auto bg-red-500">
+                <main className="w-full mx-auto bg-blue-400 ">
                     <section className="shadow row">
                         <div className="tabs">
                             <div className="border-b tab">
@@ -121,7 +89,7 @@ export default function SideBar({ bastardnessTypes, v1v2change,v1orv2 }) {
 
                     </section>
                 </main>
-                <main className="w-full mx-auto bg-blue-500">
+                <main className="w-full mx-auto bg-blue-300">
                     <section className="shadow row">
                         <div className="tabs">
                             <div className="border-b tab">
@@ -286,7 +254,7 @@ export default function SideBar({ bastardnessTypes, v1v2change,v1orv2 }) {
 
                     </section>
                 </main>
-                <p className="text-2xl text-center  font-bold underline bg-green-300 py-4">HYPED AF TRAITS:</p>
+                {/* <p className="text-2xl text-center  font-bold underline bg-green-300 py-4">HYPED AF TRAITS:</p>
 
 
                 <main className="w-full mx-auto bg-yellow-200">
@@ -434,7 +402,7 @@ export default function SideBar({ bastardnessTypes, v1v2change,v1orv2 }) {
                         </div>
 
                     </section>
-                </main>
+                </main> */}
 
 
 
