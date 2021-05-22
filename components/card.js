@@ -75,19 +75,19 @@ export default function Card({ bas }) {
 
           <div className="bg-green-200 p-2 flex justify-between">
             {/* <span className="text-sm font-bold underline ">HYPE TYPE:</span>  */}
-            <span className="text-sm py-1 font-bold">FACE TYPE:</span>
-            <span className="text-sm py-1 font-bold">ZOMBIE/APE HYBRID</span>
+            <span className="text-sm py-1 font-bold">BASTARD TYPE:</span>
+            <span className="text-sm py-1 font-bold">{bas.attributes[3].value}</span>
 
           </div>
           <div className="bg-red-200 p-2 flex justify-between ">
             {/* <p className="text-sm underline font-bold">BASTARDNESS:</p>  */}
-            <span className="text-sm py-1 font-bold">FACE DIRECTION:</span>
-            <span className="text-sm py-1 font-bold">LEFT</span>
+            <span className="text-sm py-1 font-bold">BACKGROUND:</span>
+            <span className="text-sm py-1 font-bold">{bas.attributes[4].value}</span>
           </div>
           <div className="bg-yellow-200 p-2 flex justify-between">
             {/* <p className="text-sm underline font-bold">BASTARDNESS:</p>  */}
-            <span className="text-sm py-1 font-bold">S/G BACKGROUND:</span>
-            <span className="text-sm py-1 font-bold">SOLID</span>
+            <span className="text-sm py-1 font-bold">FACING DIRECTION:</span>
+            <span className="text-sm py-1 font-bold">{bas.attributes[5].value}</span>
 
           </div>
 
