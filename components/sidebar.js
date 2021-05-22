@@ -1,4 +1,4 @@
-export default function SideBar({ bastardnessTypes, v1v2change,v1orv2 }) {
+export default function SideBar({ bastardnessTypes, wordCounts, v1v2change,v1orv2 }) {
     console.log(bastardnessTypes)
     return (
         <div className="flex flex-col  w-full sm:w-1/4 max-h-screen charriot overflow-y-auto relative inline-block bg-pink-600 bg-opacity-90 border-red-500">
@@ -7,7 +7,7 @@ export default function SideBar({ bastardnessTypes, v1v2change,v1orv2 }) {
 
 
             <p className="text-4xl text-center py-8 text-pink-200 underline">FILTER BASTARDS BY:</p>
-
+            
             <div class="flex items-center justify-center w-full mb-12">
 
                 <label for="toggleB" class="flex items-center cursor-pointer">
@@ -39,6 +39,8 @@ export default function SideBar({ bastardnessTypes, v1v2change,v1orv2 }) {
                
 
                 <p className="text-2xl text-center  font-bold underline bg-blue-500 py-4">BGANPUNKS V2:</p>
+                {/* SEARCH BAR */}
+                <input class="w-full px-3 rounded  focus:outline-none focus:shadow-outline text-2xl px-8 shadow-lg" type="number" min={0} max={11305} placeholder="BGANPUNKSV2 TOKEN ID" />
 
                 <main className="w-full mx-auto bg-blue-400 ">
                     <section className="shadow row">
@@ -125,6 +127,55 @@ export default function SideBar({ bastardnessTypes, v1v2change,v1orv2 }) {
 
                     </section>
                 </main>
+                <main className="w-full mx-auto bg-blue-400 ">
+                    <section className="shadow row">
+                        <div className="tabs">
+                            <div className="border-b tab">
+                                <div className="border-l-2 border-transparent relative">
+                                    <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
+                                    <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
+                                        <span className="text-grey-darkest font-thin text-xl">
+                                            SONG WORD LENGTH
+                                    </span>
+                                        <div className="rounded-full border border-black w-7 h-7 flex items-center justify-center test">
+                                            <svg aria-hidden="true" className="" data-reactid="266" fill="none" height="24" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <polyline points="6 9 12 15 18 9">
+                                                </polyline>
+                                            </svg>
+                                        </div>
+                                    </header>
+                                    <div className="tab-content">
+                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest">
+                                            {
+                                                Object.keys(wordCounts).sort(function(a,b){return a-b}).map((type) => {
+
+                                                    return (
+                                                        <div key={type}>
+                                                            <input type="checkbox" id={type} name="wordCount" value={type} />
+                                                            <label htmlFor={type}> {type} ({wordCounts[type].length})</label><br />
+
+                                                        </div>
+
+
+                                                    )
+
+
+                                                })
+
+
+
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </section>
+                </main>
 
 
 
@@ -139,7 +190,7 @@ export default function SideBar({ bastardnessTypes, v1v2change,v1orv2 }) {
                                     <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
                                     <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
                                         <span className="text-grey-darkest font-thin text-xl">
-                                            BASTARD TYPE
+                                            FACE TYPE
                                 </span>
                                         <div className="rounded-full border border-black w-7 h-7 flex items-center justify-center test">
                                             <svg aria-hidden="true" className="" data-reactid="266" fill="none" height="24" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">

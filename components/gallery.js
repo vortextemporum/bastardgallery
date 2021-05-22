@@ -29,7 +29,7 @@ export default function Gallery({bastards, v1orv2}) {
          
           : 
           
-              bastards.slice(0,999).map(bastard => {
+              bastards.slice(0,8900).map(bastard => {
                 // console.log(bastard)
                 return <LazyLoad
                 height="280px"

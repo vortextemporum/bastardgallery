@@ -6,8 +6,8 @@ import {useEffect,useState} from "react"
 export default function Home() {
   const [bastards, setBastards] = useState([]);
   const [bastardnessTypes,setBastardnessTypes] = useState({})
-  let ikinci = {}
-
+  const [wordCounts,setWordCounts] = useState({})
+ 
   const [bastardnessFilter, setBastardnessFilter] = useState({
       "GOD BASTARD": false,
       "INGLOURIOUS BASTARD": false,
@@ -147,6 +147,7 @@ export default function Home() {
       .then((data) => {
         setBastards(data);
         let bastardnessdict = {}
+        let wordcountdict = {}
         data.map(b => {
           // ikinci[b.attributes[1].value] = false
           if (b.attributes[1].value in bastardnessdict) {
@@ -155,10 +156,17 @@ export default function Home() {
           {
             bastardnessdict[b.attributes[1].value] = [];
             bastardnessdict[b.attributes[1].value].push(b.tokenId)
-
+          }
+          if (b.attributes[2].value in wordcountdict) {
+            wordcountdict[b.attributes[2].value].push(b.tokenId);
+          } else
+          {
+            wordcountdict[b.attributes[2].value] = [];
+            wordcountdict[b.attributes[2].value].push(b.tokenId)
           }
         })
         setBastardnessTypes(bastardnessdict)
+        setWordCounts(wordcountdict)
 
       })
       // console.log(gallery)
@@ -173,7 +181,8 @@ export default function Home() {
   return (
     <div className="flex flex-wrap">
       <SideBar 
-        bastardnessTypes={bastardnessTypes} 
+        bastardnessTypes={bastardnessTypes}
+        wordCounts={wordCounts} 
         v1v2change={v1v2change}
         v1orv2={v1orv2}
       />
