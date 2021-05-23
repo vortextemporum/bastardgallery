@@ -43,9 +43,20 @@ export default function Home() {
       .then((data) => {
         setBastards(data);
         setIndices(data)
+        let hypetypecountdict = {}
         let bastardnessdict = {}
         let wordcountdict = {}
+        let bastardtypecountdict = {}
+        let backgroundcountdict = {}
+        let facingdirectiondict = {}
         data.map(b => {
+          if (b.attributes[0].value in hypetypecountdict) {
+            hypetypecountdict[b.attributes[0].value].push(b.tokenId);
+          } else
+          {
+            hypetypecountdict[b.attributes[0].value] = [];
+            hypetypecountdict[b.attributes[0].value].push(b.tokenId)
+          }
           if (b.attributes[1].value in bastardnessdict) {
             bastardnessdict[b.attributes[1].value].push(b.tokenId);
           } else
@@ -60,9 +71,37 @@ export default function Home() {
             wordcountdict[b.attributes[2].value] = [];
             wordcountdict[b.attributes[2].value].push(b.tokenId)
           }
+          if( b.attributes[0] === "CALM AF (STILL)") {
+            if (b.attributes[3].value in bastardtypecountdict) {
+              bastardtypecountdict[b.attributes[3].value].push(b.tokenId);
+            } else
+            {
+              bastardtypecountdict[b.attributes[3].value] = [];
+              bastardtypecountdict[b.attributes[3].value].push(b.tokenId)
+            }
+          
+            if (b.attributes[4].value in backgroundcountdict) {
+              backgroundcountdict[b.attributes[4].value].push(b.tokenId);
+            } else
+            {
+              backgroundcountdict[b.attributes[4].value] = [];
+              backgroundcountdict[b.attributes[4].value].push(b.tokenId)
+            }
+            if (b.attributes[5].value in facingdirectiondict) {
+              facingdirectiondict[b.attributes[5].value].push(b.tokenId);
+            } else
+            {
+              facingdirectiondict[b.attributes[5].value] = [];
+              facingdirectiondict[b.attributes[5].value].push(b.tokenId)
+            }
+          }
         })
+        setHypeTypeCounts(hypetypecountdict)
         setBastardnessTypes(bastardnessdict)
         setWordCounts(wordcountdict)
+        setBastardTypeCounts(bastardtypecountdict)
+        setBackgroundCounts(backgroundcountdict)
+        setFacingDirectionCounts(facingdirectiondict)
 
         
         
