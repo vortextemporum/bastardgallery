@@ -28,7 +28,7 @@ export default function SideBar({
 
 }) {
     return (
-        <div className="flex flex-col  w-full sm:w-1/4 max-h-screen charriot overflow-y-auto relative inline-block bg-pink-600 bg-opacity-90 border-red-500">
+        <div className="flex flex-col  w-full md:w-1/4 max-h-screen charriot overflow-y-auto relative inline-block bg-pink-600 bg-opacity-90 border-red-500">
 
             <p className="text-4xl text-center py-8 text-pink-200 underline">FILTER BASTARDS BY:</p>
             
@@ -66,7 +66,7 @@ export default function SideBar({
 
                 <p className="text-2xl my-4 text-center  font-bold underline bg-blue-500 py-4">BGANPUNKS V2:</p>
                 {/* SEARCH BAR */}
-                <input className="w-full  py-4 px-4 rounded  focus:outline-none focus:shadow-outline text-2xl shadow-lg" type="number" min={0} max={totalSupply} placeholder="BGANPUNKSV2 TOKEN ID" onChange={e => (e.target.value < totalSupply) ? setSearchbar(e.target.value) : null} />
+                <input className="w-full mb-4 py-4 px-4 rounded  focus:outline-none focus:shadow-outline text-2xl shadow-lg" type="number" min={0} max={totalSupply} placeholder="BGANPUNKSV2 TOKEN ID" onChange={e => (e.target.value < totalSupply) ? setSearchbar(e.target.value) : null} />
 
                 <main className="w-full mx-auto bg-blue-300">
                     <section className="shadow row">
@@ -117,7 +117,7 @@ export default function SideBar({
 
                     </section>
                 </main>
-                <main className="w-full mx-auto bg-blue-400 mt-4">
+                <main className="w-full mx-auto bg-blue-400">
                     <section className="shadow row">
                         <div className="tabs">
                             <div className="border-b tab">
@@ -516,7 +516,9 @@ export default function SideBar({
                     </section>
                 </main> */}
 
-            <a className="text-4xl mx-auto my-8 underline text-white" href="https://github.com/vortextemporum/bastardgallery" target="_blank">SOURCE CODE ON GITHUB</a>
+            <a className="text-4xl mx-auto mt-8 underline text-white" href="https://github.com/vortextemporum/bastardgallery" target="_blank">SOURCE CODE ON GITHUB</a>
+            <a className="text-4xl mx-auto mt-8 underline text-white" href="https://docs.google.com/spreadsheets/d/1Kd5sAek3SJ47ZpNaHUFEHel9Y4PXAsxdAz_yb7xbfJ0/" target="_blank">RARITY CHARTS FOR CALM AF</a>
+            <p className="text-2xl mx-auto mt-8 mb-8 underline text-white text-center">KUDOS TO BASTARD GAN PUNKS COMMUNITY FOR THEIR HARD WORK TO PREPARE TRAITS. U R AWESOME! ❤️</p>
 
             </div>
     )

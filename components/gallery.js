@@ -58,7 +58,7 @@ export default function Gallery({
       
 
 
-      <div id="scrollableDiv" className="charriot overflow-y-auto  h-screen  w-full sm:w-3/4  relative inline-block">
+      <div id="scrollableDiv" className="charriot overflow-y-auto  h-screen  w-full md:w-3/4  relative inline-block">
           {
           !(v1v2)? <div className="flex flex-wrap"> 
           
