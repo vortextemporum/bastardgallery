@@ -15,6 +15,14 @@ export default function SideBar({
     setBastardTypeFilter,
     setBackgroundFilter,
     setFacingDirectionFilter,
+
+    bastardnessFilter,
+    hypeStatusFilter,
+    songWordCountFilter,
+    bastardTypeFilter,
+    backgroundFilter,
+    facingDirectionFilter,
+
     setSearchbar,
     totalSupply
 
@@ -58,8 +66,57 @@ export default function SideBar({
 
                 <p className="text-2xl my-4 text-center  font-bold underline bg-blue-500 py-4">BGANPUNKS V2:</p>
                 {/* SEARCH BAR */}
-                <input className="w-full  py-4 px-4 rounded  focus:outline-none focus:shadow-outline text-2xl shadow-lg" type="number" min={0} max={totalSupply} placeholder="BGANPUNKSV2 TOKEN ID" onChange={e => setSearchbar(e.target.value)} />
+                <input className="w-full  py-4 px-4 rounded  focus:outline-none focus:shadow-outline text-2xl shadow-lg" type="number" min={0} max={totalSupply} placeholder="BGANPUNKSV2 TOKEN ID" onChange={e => (e.target.value < totalSupply) ? setSearchbar(e.target.value) : null} />
 
+                <main className="w-full mx-auto bg-blue-300">
+                    <section className="shadow row">
+                        <div className="tabs">
+                            <div className="border-b tab">
+                                <div className="border-l-2 border-transparent relative">
+                                    <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
+                                    <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
+                                        <span className="text-grey-darkest font-thin text-xl">
+                                            HYPE TYPE - {hypeStatusFilter} {hypeStatusFilter != "ALL" ? <span>({hypeTypeCounts[hypeStatusFilter].length})</span> : <></>}
+                                        </span>
+                                        <div className="rounded-full border border-black w-7 h-7 flex items-center justify-center test">
+                                            <svg aria-hidden="true" className="" data-reactid="266" fill="none" height="24" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <polyline points="6 9 12 15 18 9">
+                                                </polyline>
+                                            </svg>
+                                        </div>
+                                    </header>
+                                    <div className="tab-content">
+                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest" onChange={(e) => setHypeStatusFilter(e.target.value)}>
+
+                                            <input type="radio" id="ALL" name="HYPE TYPE" value="ALL" defaultChecked />
+                                            <label htmlFor="ALL"> ALL</label><br />
+
+                                            {
+                                                Object.keys(hypeTypeCounts).sort(function(a,b){return a-b}).map((type) => {
+
+                                                    return (
+                                                        <div key={type}>
+                                                            <input type="radio" id={type} name="HYPE TYPE" value={type} />
+                                                            <label htmlFor={type}> {type} ({hypeTypeCounts[type].length})</label><br />
+
+                                                        </div>
+
+                                                    )
+
+                                                })
+
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </section>
+                </main>
                 <main className="w-full mx-auto bg-blue-400 mt-4">
                     <section className="shadow row">
                         <div className="tabs">
@@ -68,7 +125,7 @@ export default function SideBar({
                                     <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
                                     <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
                                         <span className="text-grey-darkest font-thin text-xl">
-                                            BASTARDNESS
+                                            BASTARDNESS - {bastardnessFilter} {bastardnessFilter != "ALL" ? <span>({bastardnessTypes[bastardnessFilter].length})</span> : <></>}
                                     </span>
                                         <div className="rounded-full border border-black w-7 h-7 flex items-center justify-center test">
                                             <svg aria-hidden="true" className="" data-reactid="266" fill="none" height="24" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -106,58 +163,6 @@ export default function SideBar({
 
                     </section>
                 </main>
-                <main className="w-full mx-auto bg-blue-300">
-                    <section className="shadow row">
-                        <div className="tabs">
-                            <div className="border-b tab">
-                                <div className="border-l-2 border-transparent relative">
-                                    <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
-                                    <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
-                                        <span className="text-grey-darkest font-thin text-xl">
-                                            HYPE TYPE
-                                </span>
-                                        <div className="rounded-full border border-black w-7 h-7 flex items-center justify-center test">
-                                            <svg aria-hidden="true" className="" data-reactid="266" fill="none" height="24" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                                <polyline points="6 9 12 15 18 9">
-                                                </polyline>
-                                            </svg>
-                                        </div>
-                                    </header>
-                                    <div className="tab-content">
-                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest" onChange={(e) => setHypeStatusFilter(e.target.value)}>
-
-                                            <input type="radio" id="ALL" name="HYPE TYPE" value="ALL" defaultChecked />
-                                            <label htmlFor="ALL"> ALL</label><br />
-                                            <input type="radio" id="CALM AF" name="HYPE TYPE" value="CALM AF (STILL)" />
-                                            <label htmlFor="CALM AF"> CALM AF</label><br />
-                                            <input type="radio" id="HYPED AF" name="HYPE TYPE" value="HYPED AF (ANIMATED)" />
-                                            <label htmlFor="HYPED AF"> HYPED AF</label><br />
-                                            {
-                                                Object.keys(hypeTypeCounts).sort(function(a,b){return a-b}).map((type) => {
-
-                                                    return (
-                                                        <div key={type}>
-                                                            <input type="radio" id={type} name="HYPE TYPE" value={type} />
-                                                            <label htmlFor={type}> {type} ({hypeTypeCounts[type].length})</label><br />
-
-                                                        </div>
-
-                                                    )
-
-                                                })
-
-                                            }
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    </section>
-                </main>
                 <main className="w-full mx-auto bg-blue-200 ">
                     <section className="shadow row">
                         <div className="tabs">
@@ -166,7 +171,8 @@ export default function SideBar({
                                     <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
                                     <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
                                         <span className="text-grey-darkest font-thin text-xl">
-                                            SONG WORD COUNT
+                                            SONG WORD COUNT - {songWordCountFilter} {songWordCountFilter != "ALL" ? <span>({wordCounts[songWordCountFilter].length})</span> : <></>}
+                                            {/* SONG WORD COUNT - {songWordCountFilter}  */}
                                     </span>
                                         <div className="rounded-full border border-black w-7 h-7 flex items-center justify-center test">
                                             <svg aria-hidden="true" className="" data-reactid="266" fill="none" height="24" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -176,15 +182,16 @@ export default function SideBar({
                                         </div>
                                     </header>
                                     <div className="tab-content">
-                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest" onChange={e => setSongWordCountFilter(Number(e.target.value))}>
+                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest" 
+                                        onChange={e => { (e.target.value === 'ALL') ? setSongWordCountFilter(e.target.value) : setSongWordCountFilter(Number(e.target.value)) }}>
                                             <input type="radio" id="ALL" name="wordCount" value="ALL" defaultChecked />
-                                            <label htmlFor="ALL"> "ALL"</label><br />
+                                            <label htmlFor="ALL"> ALL</label><br />
                                             {
 
                                                 Object.keys(wordCounts).sort(function(a,b){return a-b}).map((type) => {
-
+                                                    // console.log(wordCounts[type].length)
                                                     return (
-                                                        <div key={type}>
+                                                        <div key={"songCount" + type}>
                                                             <input type="radio" id={type} name="wordCount" value={type} />
                                                             <label htmlFor={type}> {type} ({wordCounts[type].length})</label><br />
                                                         </div>
@@ -219,7 +226,7 @@ export default function SideBar({
                                     <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
                                     <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
                                         <span className="text-grey-darkest font-thin text-xl">
-                                            BASTARD TYPE
+                                            BASTARD TYPE - {bastardTypeFilter}
                                 </span>
                                         <div className="rounded-full border border-black w-7 h-7 flex items-center justify-center test">
                                             <svg aria-hidden="true" className="" data-reactid="266" fill="none" height="24" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -233,22 +240,21 @@ export default function SideBar({
 
                                             <input type="radio" id="ALL" name="bastardtype" value="ALL" defaultChecked />
                                             <label htmlFor="ALL"> ALL</label><br />
-                                            <input type="radio" id="ALIEN" name="bastardtype" value="ALIEN" />
-                                            <label htmlFor="ALIEN"> ALIEN</label><br />
-                                            <input type="radio" id="ALIEN APE HYBRID" name="bastardtype" value="ALIEN APE HYBRID" />
-                                            <label htmlFor="ALIEN APE HYBRID"> ALIEN APE HYBRID</label><br />
-                                            <input type="radio" id="ALIEN HUMAN HYBRID" name="bastardtype" value="ALIEN HUMAN HYBRID" />
-                                            <label htmlFor="ALIEN HUMAN HYBRID"> ALIEN HUMAN HYBRID</label><br />
-                                            <input type="radio" id="ALIEN ZOMBIE HYBRID" name="bastardtype" value="ALIEN ZOMBIE HYBRID" />
-                                            <label htmlFor="ALIEN ZOMBIE HYBRID"> ALIEN ZOMBIE HYBRID</label><br />
-                                            <input type="radio" id="LARGE" name="bastardtype" value="LARGE" />
-                                            <label htmlFor="LARGE"> LARGE</label><br />
-                                            <input type="radio" id="PETITE" name="bastardtype" value="PETITE" />
-                                            <label htmlFor="PETITE"> PETITE</label><br />
-                                            <input type="radio" id="X BASTARD" name="bastardtype" value="X BASTARD" />
-                                            <label htmlFor="X BASTARD"> X BASTARD</label><br />
-                                            <input type="radio" id="ZOMBIE" name="bastardtype" value="ZOMBIE" />
-                                            <label htmlFor="ZOMBIE"> ZOMBIE</label><br />
+                                                 {
+                                                
+                                                Object.keys(bastardTypeCounts).sort().map((type) => {
+                                                    // console.log(bastardTypeCounts)
+                                                    return (
+                                                        <div key={type}>
+                                                            <input type="radio" id={type} name="bastardtype" value={type} />
+                                                            <label htmlFor={type}> {type} ({bastardTypeCounts[type].length})</label><br />
+                                                        </div>
+
+                                                    )
+
+                                                })
+
+                                                }
 
 
                                         </div>
@@ -270,7 +276,7 @@ export default function SideBar({
                                     <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
                                     <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
                                         <span className="text-grey-darkest font-thin text-xl">
-                                            BACKGROUND
+                                            BACKGROUND - {backgroundFilter}
                                 </span>
                                         <div className="rounded-full border border-black w-7 h-7 flex items-center justify-center test">
                                             <svg aria-hidden="true" className="" data-reactid="266" fill="none" height="24" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -284,10 +290,21 @@ export default function SideBar({
 
                                             <input type="radio" id="ALL" name="background" value="ALL" defaultChecked />
                                             <label htmlFor="ALL"> ALL</label><br />
-                                            <input type="radio" id="SOLID AF" name="background" value="SOLID AF" />
-                                            <label htmlFor="SOLID AF"> SOLID AF</label><br />
-                                            <input type="radio" id="GLITCHY AF" name="background" value="GLITCHY AF" />
-                                            <label htmlFor="GLITCHY AF"> GLITCHY AF</label><br />
+                                            {
+                                                
+                                                Object.keys(backgroundCounts).sort().map((type) => {
+                                                    // console.log(bastardTypeCounts)
+                                                    return (
+                                                        <div key={type}>
+                                                            <input type="radio" id={type} name="background" value={type} />
+                                                            <label htmlFor={type}> {type} ({backgroundCounts[type].length})</label><br />
+                                                        </div>
+
+                                                    )
+
+                                                })
+
+                                                }
 
 
                                         </div>
@@ -309,7 +326,7 @@ export default function SideBar({
                                     <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
                                     <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
                                         <span className="text-grey-darkest font-thin text-xl">
-                                            FACING DIRECTION
+                                            FACING DIRECTION - {facingDirectionFilter}
                                 </span>
                                         <div className="rounded-full border border-black w-7 h-7 flex items-center justify-center test">
                                             <svg aria-hidden="true" className="" data-reactid="266" fill="none" height="24" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -323,12 +340,21 @@ export default function SideBar({
 
                                             <input type="radio" id="ALL" name="facingdirection" value="ALL" defaultChecked />
                                             <label htmlFor="ALL"> ALL</label><br />
-                                            <input type="radio" id="LEFT" name="facingdirection" value="LEFT" />
-                                            <label htmlFor="LEFT"> LEFT</label><br />
-                                            <input type="radio" id="RIGHT" name="facingdirection" value="RIGHT" />
-                                            <label htmlFor="RIGHT"> RIGHT</label><br />
-                                            <input type="radio" id="FRONT" name="facingdirection" value="FRONT" />
-                                            <label htmlFor="FRONT"> FRONT</label><br />
+                                            {
+                                                
+                                                Object.keys(facingDirectionCounts).sort().map((type) => {
+                                                    // console.log(bastardTypeCounts)
+                                                    return (
+                                                        <div key={type}>
+                                                            <input type="radio" id={type} name="facingdirection" value={type} />
+                                                            <label htmlFor={type}> {type} ({facingDirectionCounts[type].length})</label><br />
+                                                        </div>
+
+                                                    )
+
+                                                })
+
+                                                }
 
                                         </div>
                                     </div>

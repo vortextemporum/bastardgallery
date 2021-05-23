@@ -30,8 +30,8 @@ export default function Gallery({
 
   useEffect(() => {
     setLoadedIndices(indices.slice(0, initialLoad));
-    console.log(indices);
-    console.log(loadedIndices)
+    // console.log(indices);
+    // console.log(loadedIndices)
 
   }, [indices]);
 
@@ -87,7 +87,7 @@ export default function Gallery({
                 //     overflow
                 //     once
                 //   >
-                  <Card bas={bastard} />  
+                  <Card bas={bastard} key={bastard.tokenId} />  
                 // </LazyLoad>
               )}
               </InfiniteScroll>
