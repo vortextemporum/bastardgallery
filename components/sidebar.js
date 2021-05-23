@@ -42,7 +42,7 @@ export default function SideBar({
 
             </div>
 
-                <p className="text-3xl text-center text-white  underline bg-green-700 py-4">BGANPUNKS V1:</p>
+                <p className="text-2xl text-center text-white  underline bg-green-700 py-4">BGANPUNKS V1:</p>
                 <div className="pl-8 pr-8 pb-5 text-white bg-green-700" onChange={(e) => setV1Generation(e.target.value)}>
                     <input type="radio" id="ALL" name="V1GEN" value="ALL" defaultChecked/>
                     <label htmlFor="ALL"> ALL</label><br />
@@ -56,7 +56,7 @@ export default function SideBar({
                 </div>
                
 
-                <p className="text-3xl my-4 text-center  font-bold underline bg-blue-500 py-4">BGANPUNKS V2:</p>
+                <p className="text-2xl my-4 text-center  font-bold underline bg-blue-500 py-4">BGANPUNKS V2:</p>
                 {/* SEARCH BAR */}
                 <input className="w-full  py-4 px-4 rounded  focus:outline-none focus:shadow-outline text-2xl shadow-lg" type="number" min={0} max={totalSupply} placeholder="BGANPUNKSV2 TOKEN ID" onChange={e => setSearchbar(e.target.value)} />
 
