@@ -56,11 +56,11 @@ export default function SideBar({
                 </div>
                
 
-                <p className="text-3xl my-6 text-center  font-bold underline bg-blue-500 py-4">BGANPUNKS V2:</p>
+                <p className="text-3xl my-4 text-center  font-bold underline bg-blue-500 py-4">BGANPUNKS V2:</p>
                 {/* SEARCH BAR */}
                 <input className="w-full  py-4 px-4 rounded  focus:outline-none focus:shadow-outline text-2xl shadow-lg" type="number" min={0} max={totalSupply} placeholder="BGANPUNKSV2 TOKEN ID" onChange={e => setSearchbar(e.target.value)} />
 
-                <main className="w-full mx-auto bg-blue-400 mt-6">
+                <main className="w-full mx-auto bg-blue-400 mt-4">
                     <section className="shadow row">
                         <div className="tabs">
                             <div className="border-b tab">
