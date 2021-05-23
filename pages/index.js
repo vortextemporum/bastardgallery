@@ -9,130 +9,10 @@ export default function Home() {
   const [bastards, setBastards] = useState([]);
   const [bastardnessTypes,setBastardnessTypes] = useState({})
   const [wordCounts,setWordCounts] = useState({})
+  const [hypeTypeCounts,setHypeTypeCounts] = useState({})
  
-  // const [bastardnessFilter, setBastardnessFilter] = useState({
-  //     "GOD BASTARD": false,
-  //     "INGLOURIOUS BASTARD": false,
-  //     "ONE OF A KIND BASTARD": false,
-  //     "NOT A BASTARD": false,
-  //     "$UGARWHALE BASTARD": false,
-  //     "CD456 BASTARD": false,
-  //     "EMO BASTARD": false,
-  //     "NECROMANCER BASTARD": false,
-  //     "L4M3R BASTARD": false,
-  //     "SIMP BASTARD": false,
-  //     "MAXIE BASTARD": false,
-  //     "GAMER BASTARD": false,
-  //     "ZOOMER BASTARD": false,
-  //     "POOR BASTARD": false,
-  //     "PERSONA NON GRATA BASTARD": false,
-  //     "PARASITE BASTARD": false,
-  //     "SNOOB BASTARD": false,
-  //     "W4NK3R BASTARD": false,
-  //     "LOW POLY BASTARD": false,
-  //     "HORNY BASTARD": false,
-  //     "PEACH BASTARD": false,
-  //     "CHAD BASTARD": false,
-  //     "DOOMER BASTARD": false,
-  //     "DUMPSTER BASTARD": false,
-  //     "CONFORMIST BASTARD": false,
-  //     "SMOL BASTARD": false,
-  //     "PUMPER BASTARD": false,
-  //     "THETA BASTARD": false,
-  //     "GENTLE BASTARD": false,
-  //     "PIMP BASTARD": false,
-  //     "ROMANTIQUE BASTARD": false,
-  //     "OMEGA BASTARD": false,
-  //     "ALPHA BASTARD": false,
-  //     "DIABOLIQUE BASTARD": false,
-  //     "DUMBA$$ BASTARD": false,
-  //     "5HEAD BASTARD": false,
-  //     "WEEB BASTARD": false,
-  //     "FAKE BASTARD": false,
-  //     "DOUCHE BASTARD": false,
-  //     "DΞGΞN BASTARD": false,
-  //     "DEALER BASTARD": false,
-  //     "SORCERER BASTARD": false,
-  //     "ANGEL BASTARD": false,
-  //     "UGLY BASTARD": false,
-  //     "DANK BASTARD": false,
-  //     "REKT BASTARD": false,
-  //     "DUMMKOPF BASTARD": false,
-  //     "BLUPIL BASTARD": false,
-  //     "WAIFU BASTARD": false,
-  //     "NYANCAT BASTARD": false,
-  //     "MOONBOI BASTARD": false,
-  //     "STINKY BASTARD": false,
-  //     "HIPPIE BASTARD": false,
-  //     "PRANKER BASTARD": false,
-  //     "STONER BASTARD": false,
-  //     "HODLER BASTARD": false,
-  //     "SEMI BASTARD": false,
-  //     "SEXMACHINA BASTARD": false,
-  //     "PEPEGA BASTARD": false,
-  //     "BOMBSHELL BASTARD": false,
-  //     "SAFU BASTARD": false,
-  //     "0HEAD BASTARD": false,
-  //     "EVANGELIST BASTARD": false,
-  //     "BIG TIDDY GOTH BASTARD": false,
-  //     "WHALE WANNABE BASTARD": false,
-  //     "FUTURIST BASTARD": false,
-  //     "RADPIL BASTARD": false,
-  //     "JOKER BASTARD": false,
-  //     "VEGAN BASTARD": false,
-  //     "2HEAD BASTARD": false,
-  //     "BOOMER BASTARD": false,
-  //     "TROLL BASTARD": false,
-  //     "SMUG BASTARD": false,
-  //     "ROGUE BASTARD": false,
-  //     "3HEAD BASTARD": false,
-  //     "HALAL BASTARD": false,
-  //     "BLACKPIL BASTARD": false,
-  //     "AB123 BASTARD": false,
-  //     "NOOB BASTARD": false,
-  //     "GLOOMER BASTARD": false,
-  //     "NERD BASTARD": false,
-  //     "FEELSGOOD BASTARD": false,
-  //     "MELON USK BASTARD": false,
-  //     "MINNIE BASTARD": false,
-  //     "ANON BASTARD": false,
-  //     "1HEAD BASTARD": false,
-  //     "0.0001 IQ BASTARD": false,
-  //     "FLIPPER BASTARD": false,
-  //     "BLOOMER BASTARD": false,
-  //     "JUST A PLAIN BASTARD": false,
-  //     "NOCOINER BASTARD": false,
-  //     "4HEAD BASTARD": false,
-  //     "REAL DEAL BASTARD": false,
-  //     "BETA BASTARD": false,
-  //     "SER BASTARD": false,
-  //     "500 IQ BASTARD": false,
-  //     "TANKIE BASTARD": false,
-  //     "6HEAD BASTARD": false,
-  //     "BARBARIAN BASTARD": false,
-  //     "ETHEREUM KILLA BASTARD": false,
-  //     "BADA$$ BASTARD": false,
-  //     "COOMER BASTARD": false,
-  //     "BOURGEOIS BASTARD": false,
-  //     "FREN BASTARD": false,
-  //     "EVIL BASTARD": false,
-  //     "NIFTYMANIAC BASTARD": false,
-  //     "WHITEPIL BASTARD": false,
-  //     "FOMBOI BASTARD": false,
-  //     "C00LIO BASTARD": false,
-  //     "DUMPER BASTARD": false,
-  //     "EGGPLANT BASTARD": false,
-  //     "VIRGIN BASTARD": false,
-  //     "BLACKSMITH BASTARD": false,
-  //     "RUGPULLER BASTARD": false,
-  //     "EF789 BASTARD": false,
-  //     "JACK OF ALL TRADES BASTARD": false,
-  //     "BIGBRAIN BASTARD": false,
-  //     "C̣ͦͧU̺̱̫RͨͣͫŠ͎͞E᷿ͯ͂Dͩ͢ BASTARD": false,
-  //     "ZERO DIVIDER BASTARD": false,
-  //     "DEF NOT A BASTARD": false
-  // })
-
+  const [totalSupply,setTotalSupply] = useState({})
+  
   const [v1v2, setv1v2] = useState(1);
   // V1
   const [v1Generation, setV1Generation] = useState("ALL");
@@ -177,9 +57,16 @@ export default function Home() {
         setBastardnessTypes(bastardnessdict)
         setWordCounts(wordcountdict)
 
+        
+        
+
       })
       // console.log(gallery)
-      
+      await fetch(`https://api.bastardganpunks.club/totalSupply`)
+      .then(response => response.json())
+      .then((data) => {
+        setTotalSupply(data.totalSupply);
+        })
       // console.log(ikinci)
 
     }
@@ -203,6 +90,7 @@ export default function Home() {
         setBackgroundFilter={setBackgroundFilter}
         setFacingDirectionFilter={setFacingDirectionFilter}
         setSearchbar={setSearchbar}
+        totalSupply={totalSupply}
       />
       <Gallery 
         bastards={bastards}

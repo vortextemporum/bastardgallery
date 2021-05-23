@@ -16,7 +16,9 @@ export default function Card({ bas }) {
                 overflow
                 once
               > */}
-          <img src={bas.image} style={{ "width": "280px", "height": "280px" }} />
+          <a href={bas.external_url} target="_blank">
+            <img src={bas.image} style={{ "width": "280px", "height": "280px" }} />
+          </a>
           {/* </LazyLoad> */}
           <div className="mx-auto my-auto w-full font-bold">
             <div className="bg-blue-200 p-2 ">

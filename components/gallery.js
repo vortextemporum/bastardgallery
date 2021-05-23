@@ -50,13 +50,14 @@ export default function Gallery({
               // (hypeStatusFilter === 'ALL' ? bastards : bastards.filter(bastard => bastard.attributes[0].value === hypeStatusFilter)).map(bastard => {
                 // console.log(bastard)
                 return <LazyLoad
+                key={bastard.tokenId}
                 height="280px"
                 offset={300}
                 placeholder={<img src="/loading.gif" style={{"width": "280px","height": "280px"}}/>}
                 overflow
                 once
               >
-              <Card bas={bastard} key={bastard.tokenId}/>
+              <Card bas={bastard} />
               </LazyLoad>
                 
               })

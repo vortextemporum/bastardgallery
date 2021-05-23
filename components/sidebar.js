@@ -10,7 +10,8 @@ export default function SideBar({
     setBastardTypeFilter,
     setBackgroundFilter,
     setFacingDirectionFilter,
-    setSearchbar
+    setSearchbar,
+    totalSupply
 
 }) {
     return (
@@ -20,8 +21,8 @@ export default function SideBar({
             
             <div className="flex items-center justify-center w-full mb-12">
 
-                <label for="toggleB" className="flex items-center cursor-pointer">
-                    <div className="mr-3 text-gray-700 font-medium text-2xl">
+                <label htmlFor="toggleB" className="flex items-center cursor-pointer">
+                    <div className="mr-4 text-gray-700 font-medium text-2xl">
                             V1
                         </div>
                     <div className="relative">
@@ -29,7 +30,7 @@ export default function SideBar({
                             <div className="block bg-gray-600 w-14 h-8 rounded-full"></div>
                             <div className="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
                         </div>
-                        <div className="ml-3 text-gray-700 font-medium text-2xl">
+                        <div className="ml-4 text-gray-700 font-medium text-2xl">
                         V2
                         </div>
                 </label>
@@ -52,7 +53,7 @@ export default function SideBar({
 
                 <p className="text-3xl my-6 text-center  font-bold underline bg-blue-500 py-4">BGANPUNKS V2:</p>
                 {/* SEARCH BAR */}
-                <input className="w-full py-4 px-3 rounded  focus:outline-none focus:shadow-outline text-2xl px-8 shadow-lg" type="number" min={0} max={11305} placeholder="BGANPUNKSV2 TOKEN ID" onChange={e => setSearchbar(e.target.value)} />
+                <input className="w-full  py-4 px-4 rounded  focus:outline-none focus:shadow-outline text-2xl shadow-lg" type="number" min={0} max={totalSupply} placeholder="BGANPUNKSV2 TOKEN ID" onChange={e => setSearchbar(e.target.value)} />
 
                 <main className="w-full mx-auto bg-blue-400 mt-6">
                     <section className="shadow row">
