@@ -516,7 +516,7 @@ export default function SideBar({
                     </section>
                 </main> */}
 
-
+            <a className="text-4xl mx-auto my-8 underline text-white" href="https://github.com/vortextemporum/bastardgallery" target="_blank">SOURCE CODE ON GITHUB</a>
 
             </div>
     )
