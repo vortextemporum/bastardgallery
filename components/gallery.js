@@ -1,6 +1,5 @@
 import Card from "./card.js"
 import Card2 from "./card2.js"
-import Background from "./bg.js"
 import LazyLoad from 'react-lazyload';
 
 const PUNKS_JSON_GEN1 = [{"type": "GEN #1 BASTARD", "name":"GΞNΞSIS BGANPUNK #00","image":"https://ipfs.io/ipfs/QmaNa9fQwmtu6dKAKzwm2knpvGyLwr3NZJf5DmyRbFgB2p","tokenId":"5389"},{"type": "GEN #1 BASTARD", "name":"BGANPUNK #01","image":"https://ipfs.io/ipfs/QmUheQabszWxSthEfnkoN2r3ynxtaEuLx4dg2QTKTodtLY","tokenId":"10001"},{"type": "GEN #1 BASTARD", "name":"BGANPUNK #02","image":"https://ipfs.io/ipfs/Qmd3gtQacgAyBMA3H913JRsynjSwAbSjz6gxFwkKouRXq4","tokenId":"10003"},{"type": "GEN #1 BASTARD", "name":"BGANPUNK #03","image":"https://ipfs.io/ipfs/QmTcRiTg8ZrodQAEkeQSKM93QyYSpupWhrwz9fgTPpVh4L","tokenId":"10004"},{"type": "GEN #1 BASTARD", "name":"BGANPUNK #04","image":"https://ipfs.io/ipfs/Qmf6UhjrjtopshtCPGwTfsLNCrRDCUNYmQGhfs5WE9qDSt","tokenId":"10005"},{"type": "GEN #1 BASTARD", "name":"BGANCCCYYYBBBOOORRRGGGANTIPUNK #05","image":"https://ipfs.io/ipfs/QmcggjiSdpGyvsbiGCcErsyog7tkj5gD4e9hD8YNLmiHY1","tokenId":"10006"},{"type": "GEN #1 BASTARD", "name":"BGANPUNK #06","image":"https://ipfs.io/ipfs/QmTJLDtGYSyaXHZqou8XcNbBdK7yr9hzihbAfDzs9EdEBJ","tokenId":"10007"},{"type": "GEN #1 BASTARD", "name":"BGANPUNK #07","image":"https://ipfs.io/ipfs/QmYAL1oeHUXkQrz3dS19jsaPuAQbwkZaKYCNQxvhCjsN94","tokenId":"10008"},{"type": "GEN #1 BASTARD", "name":"BGANPUNK #08","image":"https://ipfs.io/ipfs/QmRffppBDyEH3HQMhsu2xwbM1ynWkcpt1rafx4oZ4aKD21","tokenId":"10009"},{"type": "GEN #1 BASTARD", "name":"♔ THE CHESS HUSTLER ♚ - BGANPUNK #09","image":"https://ipfs.io/ipfs/QmS9SV27dsTzPQu7XvnfReB8D1mdQhtcpcpMnD2x8Bm3B2","external_url":"https://app.rarible.com/token/0x9126b817ccca682beaa9f4eae734948ee1166af1:10012","tokenId":"10012"},{"type": "GEN #1 BASTARD", "name":" R3S3RV3D BGANPUNK #10","image":"https://ipfs.io/ipfs/QmNrrxctTqeA5WTnb3UT9BYS913Usg2TBexmTvu5ZJ9kNs","external_url":"https://app.rarible.com/token/0x9126b817ccca682beaa9f4eae734948ee1166af1:10013","tokenId":"10013"}]
@@ -19,12 +18,11 @@ export default function Gallery({
   bastardTypeFilter,
   backgroundFilter,
   facingDirectionFilter,
+  searchBar
 
 }) {
     // console.log(bastards)
     return (
-      <>
-      <Background />
       
 
 
@@ -32,18 +30,24 @@ export default function Gallery({
           {
           
           !(v1v2)? 
-
-         
-
-          
+ 
           // PUNKS_JSON_GEN1.map(bastard => <Card2 bas={bastard} key={bastard.tokenId}/>)
           (v1Generation === 'ALL' ? allV1 : allV1.filter(bastard => bastard.type === v1Generation)).map(bastard => <Card2 bas={bastard} key={bastard.tokenId}/>)
           // DOOMED_DEGENS.map(bastard => <Card2 bas={bastard} key={bastard.tokenId}/>)
          
           : 
-          
+              (Number(searchBar)) ? <Card bas={bastards[searchBar]} key={bastards[searchBar].tokenId}/> :
+              bastards.filter(bastard => 
+                (hypeStatusFilter === 'ALL' ? bastard : bastard.attributes[0].value === hypeStatusFilter) &&
+                (bastardnessFilter === 'ALL' ? bastard : bastard.attributes[1].value === bastardnessFilter) &&
+                (songWordCountFilter === 'ALL' ? bastard : bastard.attributes[2].value === songWordCountFilter) &&
+                (bastardTypeFilter === 'ALL' ? bastard : bastard.attributes[0].value === "CALM AF (STILL)" && bastard.attributes[3].value === bastardTypeFilter) &&
+                (backgroundFilter === 'ALL' ? bastard : bastard.attributes[0].value === "CALM AF (STILL)" && bastard.attributes[4].value === backgroundFilter) &&
+                (facingDirectionFilter === 'ALL' ? bastard : bastard.attributes[0].value === "CALM AF (STILL)" && bastard.attributes[5].value === facingDirectionFilter) 
+                
               
-              (hypeStatusFilter === 'ALL' ? bastards : bastards.filter(bastard => bastard.attributes[0].value === hypeStatusFilter)).map(bastard => {
+              ).map(bastard => {
+              // (hypeStatusFilter === 'ALL' ? bastards : bastards.filter(bastard => bastard.attributes[0].value === hypeStatusFilter)).map(bastard => {
                 // console.log(bastard)
                 return <LazyLoad
                 height="280px"
@@ -59,6 +63,5 @@ export default function Gallery({
 
           }
       </div>
-      </>
     )
   }

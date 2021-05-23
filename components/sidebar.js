@@ -9,10 +9,10 @@ export default function SideBar({
     setSongWordCountFilter,
     setBastardTypeFilter,
     setBackgroundFilter,
-    setFacingDirectionFilter
+    setFacingDirectionFilter,
+    setSearchbar
 
 }) {
-    console.log(bastardnessTypes)
     return (
         <div className="flex flex-col  w-full sm:w-1/4 max-h-screen charriot overflow-y-auto relative inline-block bg-pink-600 bg-opacity-90 border-red-500">
 
@@ -21,18 +21,18 @@ export default function SideBar({
 
             <p className="text-4xl text-center py-8 text-pink-200 underline">FILTER BASTARDS BY:</p>
             
-            <div class="flex items-center justify-center w-full mb-12">
+            <div className="flex items-center justify-center w-full mb-12">
 
-                <label for="toggleB" class="flex items-center cursor-pointer">
-                    <div class="mr-3 text-gray-700 font-medium text-2xl">
+                <label for="toggleB" className="flex items-center cursor-pointer">
+                    <div className="mr-3 text-gray-700 font-medium text-2xl">
                             V1
                         </div>
-                    <div class="relative">
-                        <input type="checkbox" id="toggleB" class="sr-only" defaultChecked={0}  onChange={(e) => setv1v2(e.target.checked)}/>
-                            <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
-                            <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+                    <div className="relative">
+                        <input type="checkbox" id="toggleB" className="sr-only" defaultChecked={1}  onChange={(e) => setv1v2(e.target.checked)}/>
+                            <div className="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                            <div className="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
                         </div>
-                        <div class="ml-3 text-gray-700 font-medium text-2xl">
+                        <div className="ml-3 text-gray-700 font-medium text-2xl">
                         V2
                         </div>
                 </label>
@@ -55,7 +55,7 @@ export default function SideBar({
 
                 <p className="text-3xl my-6 text-center  font-bold underline bg-blue-500 py-4">BGANPUNKS V2:</p>
                 {/* SEARCH BAR */}
-                <input class="w-full py-4 px-3 rounded  focus:outline-none focus:shadow-outline text-2xl px-8 shadow-lg" type="number" min={0} max={11305} placeholder="BGANPUNKSV2 TOKEN ID" />
+                <input className="w-full py-4 px-3 rounded  focus:outline-none focus:shadow-outline text-2xl px-8 shadow-lg" type="number" min={0} max={11305} placeholder="BGANPUNKSV2 TOKEN ID" onChange={e => setSearchbar(e.target.value)} />
 
                 <main className="w-full mx-auto bg-blue-400 mt-6">
                     <section className="shadow row">
@@ -164,13 +164,15 @@ export default function SideBar({
                                         </div>
                                     </header>
                                     <div className="tab-content">
-                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest">
+                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest" onChange={e => setSongWordCountFilter(Number(e.target.value))}>
+                                            <input type="radio" id="ALL" name="wordCount" value="ALL" defaultChecked />
+                                            <label htmlFor="ALL"> "ALL"</label><br />
                                             {
                                                 Object.keys(wordCounts).sort(function(a,b){return a-b}).map((type) => {
 
                                                     return (
                                                         <div key={type}>
-                                                            <input type="checkbox" id={type} name="wordCount" value={type} />
+                                                            <input type="radio" id={type} name="wordCount" value={type} />
                                                             <label htmlFor={type}> {type} ({wordCounts[type].length})</label><br />
 
                                                         </div>
@@ -219,24 +221,26 @@ export default function SideBar({
                                         </div>
                                     </header>
                                     <div className="tab-content">
-                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest">
+                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest" onChange={e => setBastardTypeFilter(e.target.value)}>
 
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label htmlFor="vehicle1"> ALIEN</label><br />
-                                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-                                            <label htmlFor="vehicle2"> ALIEN APE HYBRID</label><br />
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label htmlFor="vehicle1"> ALIEN HUMAN HYBRID</label><br />
-                                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-                                            <label htmlFor="vehicle2"> ALIEN ZOMBIE HYBRID</label><br />
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label htmlFor="vehicle1"> LARGE</label><br />
-                                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-                                            <label htmlFor="vehicle2"> PETITE</label><br />
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label htmlFor="vehicle1"> X BASTARD</label><br />
-                                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-                                            <label htmlFor="vehicle2"> ZOMBIE</label><br />
+                                            <input type="radio" id="ALL" name="bastardtype" value="ALL" defaultChecked />
+                                            <label htmlFor="ALL"> ALL</label><br />
+                                            <input type="radio" id="ALIEN" name="bastardtype" value="ALIEN" />
+                                            <label htmlFor="ALIEN"> ALIEN</label><br />
+                                            <input type="radio" id="ALIEN APE HYBRID" name="bastardtype" value="ALIEN APE HYBRID" />
+                                            <label htmlFor="ALIEN APE HYBRID"> ALIEN APE HYBRID</label><br />
+                                            <input type="radio" id="ALIEN HUMAN HYBRID" name="bastardtype" value="ALIEN HUMAN HYBRID" />
+                                            <label htmlFor="ALIEN HUMAN HYBRID"> ALIEN HUMAN HYBRID</label><br />
+                                            <input type="radio" id="ALIEN ZOMBIE HYBRID" name="bastardtype" value="ALIEN ZOMBIE HYBRID" />
+                                            <label htmlFor="ALIEN ZOMBIE HYBRID"> ALIEN ZOMBIE HYBRID</label><br />
+                                            <input type="radio" id="LARGE" name="bastardtype" value="LARGE" />
+                                            <label htmlFor="LARGE"> LARGE</label><br />
+                                            <input type="radio" id="PETITE" name="bastardtype" value="PETITE" />
+                                            <label htmlFor="PETITE"> PETITE</label><br />
+                                            <input type="radio" id="X BASTARD" name="bastardtype" value="X BASTARD" />
+                                            <label htmlFor="X BASTARD"> X BASTARD</label><br />
+                                            <input type="radio" id="ZOMBIE" name="bastardtype" value="ZOMBIE" />
+                                            <label htmlFor="ZOMBIE"> ZOMBIE</label><br />
 
 
                                         </div>
@@ -268,12 +272,14 @@ export default function SideBar({
                                         </div>
                                     </header>
                                     <div className="tab-content">
-                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest">
+                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest" onChange={(e) => setBackgroundFilter(e.target.value)}>
 
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label htmlFor="vehicle1"> SOLID AF</label><br />
-                                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-                                            <label htmlFor="vehicle2"> GLITCHED AF</label><br />
+                                            <input type="radio" id="ALL" name="background" value="ALL" defaultChecked />
+                                            <label htmlFor="ALL"> ALL</label><br />
+                                            <input type="radio" id="SOLID AF" name="background" value="SOLID AF" />
+                                            <label htmlFor="SOLID AF"> SOLID AF</label><br />
+                                            <input type="radio" id="GLITCHY AF" name="background" value="GLITCHY AF" />
+                                            <label htmlFor="GLITCHY AF"> GLITCHY AF</label><br />
 
 
                                         </div>
@@ -305,14 +311,16 @@ export default function SideBar({
                                         </div>
                                     </header>
                                     <div className="tab-content">
-                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest">
+                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest" onChange={(e) => setFacingDirectionFilter(e.target.value)}>
 
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label htmlFor="vehicle1"> LEFT</label><br />
-                                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-                                            <label htmlFor="vehicle2"> RIGHT</label><br />
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                            <label htmlFor="vehicle1"> FRONT</label><br />
+                                            <input type="radio" id="ALL" name="facingdirection" value="ALL" defaultChecked />
+                                            <label htmlFor="ALL"> ALL</label><br />
+                                            <input type="radio" id="LEFT" name="facingdirection" value="LEFT" />
+                                            <label htmlFor="LEFT"> LEFT</label><br />
+                                            <input type="radio" id="RIGHT" name="facingdirection" value="RIGHT" />
+                                            <label htmlFor="RIGHT"> RIGHT</label><br />
+                                            <input type="radio" id="FRONT" name="facingdirection" value="FRONT" />
+                                            <label htmlFor="FRONT"> FRONT</label><br />
 
                                         </div>
                                     </div>

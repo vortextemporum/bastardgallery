@@ -1,6 +1,8 @@
 import SideBar from "../components/sidebar.js"
 import Gallery from "../components/gallery.js"
 import {useEffect,useState} from "react"
+import Background from "../components/bg.js"
+
 
 
 export default function Home() {
@@ -131,10 +133,12 @@ export default function Home() {
   //     "DEF NOT A BASTARD": false
   // })
 
-  const [v1v2, setv1v2] = useState(0);
+  const [v1v2, setv1v2] = useState(1);
   // V1
   const [v1Generation, setV1Generation] = useState("ALL");
 
+
+  const [searchBar, setSearchbar] = useState("")
   // V2
   const [bastardnessFilter, setBastardnessFilter] = useState("ALL")
   const [hypeStatusFilter, setHypeStatusFilter] = useState("ALL")
@@ -144,7 +148,6 @@ export default function Home() {
   const [backgroundFilter, setBackgroundFilter] = useState("ALL")
   const [facingDirectionFilter, setFacingDirectionFilter] = useState("ALL")
 
-  function v1v2change(e){ e.preventDefault; setv1v2(e); console.log(e) };
 
   useEffect( 
     async () => {
@@ -186,6 +189,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-wrap">
+          <Background />
+
       <SideBar 
         bastardnessTypes={bastardnessTypes}
         wordCounts={wordCounts} 
@@ -197,6 +202,7 @@ export default function Home() {
         setBastardTypeFilter={setBastardTypeFilter}
         setBackgroundFilter={setBackgroundFilter}
         setFacingDirectionFilter={setFacingDirectionFilter}
+        setSearchbar={setSearchbar}
       />
       <Gallery 
         bastards={bastards}
@@ -208,6 +214,7 @@ export default function Home() {
         bastardTypeFilter={bastardTypeFilter}
         backgroundFilter={backgroundFilter}
         facingDirectionFilter={facingDirectionFilter}
+        searchBar={searchBar}
 
       />
     </div>

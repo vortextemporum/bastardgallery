@@ -37,7 +37,7 @@ export default function Card({ bas }) {
                     <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
                     <header className="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" htmlFor="chck1">
                       <span className="font-bold">
-                        BASTARD LYRICS
+                        BASTARD LYRICS ({bas.attributes[2].value})
                                     </span>
                       <div className="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
                         <svg aria-hidden="true" className="" data-reactid="266" fill="none" height="24" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
