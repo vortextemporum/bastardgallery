@@ -189,7 +189,7 @@ export default function Home() {
   return (
     <div className="flex flex-wrap">
       <Head>
-        <title>My page title</title>
+        <title>BASTARD GAN PUNKS GALLERY</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png"/>
         <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
