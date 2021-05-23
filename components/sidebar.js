@@ -1,7 +1,12 @@
 export default function SideBar({ 
     bastardnessTypes, 
     wordCounts, 
-    v1v2change,
+    hypeTypeCounts,
+    bastardTypeCounts,
+    backgroundCounts,
+    facingDirectionCounts,
+
+
     setv1v2, 
     setV1Generation,
     setBastardnessFilter, 
@@ -85,14 +90,9 @@ export default function SideBar({
                                                             <label htmlFor={type}> {type} ({bastardnessTypes[type].length})</label><br />
 
                                                         </div>
-
-
                                                     )
 
-
                                                 })
-
-
 
                                             }
 
@@ -132,7 +132,21 @@ export default function SideBar({
                                             <label htmlFor="CALM AF"> CALM AF</label><br />
                                             <input type="radio" id="HYPED AF" name="HYPE TYPE" value="HYPED AF (ANIMATED)" />
                                             <label htmlFor="HYPED AF"> HYPED AF</label><br />
+                                            {
+                                                Object.keys(hypeTypeCounts).sort(function(a,b){return a-b}).map((type) => {
 
+                                                    return (
+                                                        <div key={type}>
+                                                            <input type="radio" id={type} name="HYPE TYPE" value={type} />
+                                                            <label htmlFor={type}> {type} ({hypeTypeCounts[type].length})</label><br />
+
+                                                        </div>
+
+                                                    )
+
+                                                })
+
+                                            }
 
                                         </div>
                                     </div>
@@ -166,22 +180,18 @@ export default function SideBar({
                                             <input type="radio" id="ALL" name="wordCount" value="ALL" defaultChecked />
                                             <label htmlFor="ALL"> "ALL"</label><br />
                                             {
+
                                                 Object.keys(wordCounts).sort(function(a,b){return a-b}).map((type) => {
 
                                                     return (
                                                         <div key={type}>
                                                             <input type="radio" id={type} name="wordCount" value={type} />
                                                             <label htmlFor={type}> {type} ({wordCounts[type].length})</label><br />
-
                                                         </div>
-
 
                                                     )
 
-
                                                 })
-
-
 
                                             }
 

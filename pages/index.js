@@ -6,11 +6,17 @@ import Background from "../components/bg.js"
 
 
 export default function Home() {
+  
+
+
   const [bastards, setBastards] = useState([]);
   const [bastardnessTypes,setBastardnessTypes] = useState({})
   const [wordCounts,setWordCounts] = useState({})
   const [hypeTypeCounts,setHypeTypeCounts] = useState({})
- 
+  const [bastardTypeCounts,setBastardTypeCounts] = useState({})
+  const [backgroundCounts,setBackgroundCounts] = useState({})
+  const [facingDirectionCounts,setFacingDirectionCounts] = useState({})
+
   const [totalSupply,setTotalSupply] = useState({})
   
   const [v1v2, setv1v2] = useState(1);
@@ -28,6 +34,7 @@ export default function Home() {
   const [backgroundFilter, setBackgroundFilter] = useState("ALL")
   const [facingDirectionFilter, setFacingDirectionFilter] = useState("ALL")
 
+  const [indices, setIndices] = useState([]);
 
   useEffect( 
     async () => {
@@ -35,10 +42,10 @@ export default function Home() {
       .then(response => response.json())
       .then((data) => {
         setBastards(data);
+        setIndices(data)
         let bastardnessdict = {}
         let wordcountdict = {}
         data.map(b => {
-          // ikinci[b.attributes[1].value] = false
           if (b.attributes[1].value in bastardnessdict) {
             bastardnessdict[b.attributes[1].value].push(b.tokenId);
           } else
@@ -66,13 +73,77 @@ export default function Home() {
       .then(response => response.json())
       .then((data) => {
         setTotalSupply(data.totalSupply);
+        
         })
       // console.log(ikinci)
 
     }
     ,[])
 
-
+    useEffect( 
+      async () => {
+        let hypetypecountdict = {}
+        let bastardnessdict = {}
+        let wordcountdict = {}
+        let bastardtypecountdict = {}
+        let backgroundcountdict = {}
+        let facingdirectiondict = {}
+        indices.map(b => {
+          if (b.attributes[0].value in hypetypecountdict) {
+            hypetypecountdict[b.attributes[0].value].push(b.tokenId);
+          } else
+          {
+            hypetypecountdict[b.attributes[0].value] = [];
+            hypetypecountdict[b.attributes[0].value].push(b.tokenId)
+          }
+          if (b.attributes[1].value in bastardnessdict) {
+            bastardnessdict[b.attributes[1].value].push(b.tokenId);
+          } else
+          {
+            bastardnessdict[b.attributes[1].value] = [];
+            bastardnessdict[b.attributes[1].value].push(b.tokenId)
+          }
+          if (b.attributes[2].value in wordcountdict) {
+            wordcountdict[b.attributes[2].value].push(b.tokenId);
+          } else
+          {
+            wordcountdict[b.attributes[2].value] = [];
+            wordcountdict[b.attributes[2].value].push(b.tokenId)
+          }
+          if( b.attributes[0] === "CALM AF (STILL)") {
+            if (b.attributes[3].value in bastardtypecountdict) {
+              bastardtypecountdict[b.attributes[3].value].push(b.tokenId);
+            } else
+            {
+              bastardtypecountdict[b.attributes[3].value] = [];
+              bastardtypecountdict[b.attributes[3].value].push(b.tokenId)
+            }
+          
+            if (b.attributes[4].value in backgroundcountdict) {
+              backgroundcountdict[b.attributes[4].value].push(b.tokenId);
+            } else
+            {
+              backgroundcountdict[b.attributes[4].value] = [];
+              backgroundcountdict[b.attributes[4].value].push(b.tokenId)
+            }
+            if (b.attributes[5].value in facingdirectiondict) {
+              facingdirectiondict[b.attributes[5].value].push(b.tokenId);
+            } else
+            {
+              facingdirectiondict[b.attributes[5].value] = [];
+              facingdirectiondict[b.attributes[5].value].push(b.tokenId)
+            }
+          }
+        })
+        setHypeTypeCounts(hypetypecountdict)
+        setBastardnessTypes(bastardnessdict)
+        setWordCounts(wordcountdict)
+        setBastardTypeCounts(bastardtypecountdict)
+        setBackgroundCounts(backgroundcountdict)
+        setFacingDirectionCounts(facingdirectiondict)
+  
+      }
+      ,[indices])  
 
   return (
     <div className="flex flex-wrap">
@@ -81,6 +152,10 @@ export default function Home() {
       <SideBar 
         bastardnessTypes={bastardnessTypes}
         wordCounts={wordCounts} 
+        hypeTypeCounts={hypeTypeCounts}
+        bastardTypeCounts={bastardTypeCounts}
+        backgroundCounts={backgroundCounts}
+        facingDirectionCounts={facingDirectionCounts}
         setv1v2={setv1v2}
         setV1Generation={setV1Generation}
         setBastardnessFilter={setBastardnessFilter}
@@ -103,7 +178,8 @@ export default function Home() {
         backgroundFilter={backgroundFilter}
         facingDirectionFilter={facingDirectionFilter}
         searchBar={searchBar}
-
+        indices={indices}
+        setIndices={setIndices}
       />
     </div>
   )
