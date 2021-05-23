@@ -28,7 +28,7 @@ export default function SideBar({
 
 }) {
     return (
-        <div className="flex flex-col  w-full md:w-1/4 max-h-screen charriot overflow-y-auto relative inline-block bg-pink-600 bg-opacity-90 border-red-500">
+        <div className="flex flex-col  w-full sm:w-1/4 max-h-screen charriot overflow-y-auto relative inline-block bg-pink-600 bg-opacity-90 border-red-500">
 
             <p className="text-4xl text-center py-8 text-pink-200 underline">FILTER BASTARDS BY:</p>
             
