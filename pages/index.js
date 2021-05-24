@@ -194,7 +194,7 @@ export default function Home() {
       <meta property="og:description" content="A SUPER BASTARDOUS WEBSITE WHERE YOU CAN BROWSE AND FILTER YOUR V1 AND V2 BASTARD GAN PUNKS" key="ogdesc" />
       <meta property="og:type" content="website" key="ogtype" />
       <meta property="og:url" content="https://gallery.bastardganpunks.club/" key="ogurl"/>
-      <meta property="og:image" content="/cardimage.png" key="ogimage"/>
+      <meta property="og:image" content="https://gallery.bastardganpunks.club/cardimage.png" key="ogimage"/>
       <meta property="og:site_name" content="https://gallery.bastardganpunks.club/" key="ogsitename" />
 
       <meta name="twitter:card" content="summary_large_image" key="twcard"/>
@@ -202,7 +202,7 @@ export default function Home() {
       <meta property="twitter:url" content="https://gallery.bastardganpunks.club/" key="twurl" />
       <meta name="twitter:title" content="BASTARD GAN PUNKS GALLERY" key="twtitle" />
       <meta name="twitter:description" content="A SUPER BASTARDOUS WEBSITE WHERE YOU CAN BROWSE AND FILTER YOUR V1 AND V2 BASTARD GAN PUNKS" key="twdesc" />
-      <meta name="twitter:image" content="/cardimage.png" key="twimage" />
+      <meta name="twitter:image" content="https://gallery.bastardganpunks.club/cardimage.png" key="twimage" />
 
 
         <title>BASTARD GAN PUNKS GALLERY</title>
