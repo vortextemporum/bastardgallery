@@ -516,9 +516,9 @@ export default function SideBar({
                     </section>
                 </main> */}
 
-            <a className="text-4xl mx-auto mt-8 underline text-white" href="https://github.com/vortextemporum/bastardgallery" target="_blank">SOURCE CODE ON GITHUB</a>
-            <a className="text-4xl mx-auto mt-8 underline text-white" href="https://docs.google.com/spreadsheets/d/1Kd5sAek3SJ47ZpNaHUFEHel9Y4PXAsxdAz_yb7xbfJ0/" target="_blank">RARITY CHARTS FOR CALM AF</a>
-            <p className="text-2xl mx-auto mt-8 mb-8 underline text-white text-center">KUDOS TO BASTARD GAN PUNKS COMMUNITY FOR THEIR HARD WORK TO PREPARE TRAITS. U R AWESOME! ❤️</p>
+            <a className="text-2xl mx-auto pt-8 underline text-white" href="https://github.com/vortextemporum/bastardgallery" target="_blank">SOURCE CODE ON GITHUB</a>
+            <a className="text-2xl mx-auto pt-8  underline text-white" href="https://docs.google.com/spreadsheets/d/1Kd5sAek3SJ47ZpNaHUFEHel9Y4PXAsxdAz_yb7xbfJ0/" target="_blank">RARITY CHARTS FOR CALM AF</a>
+            <p className="text-xl mx-auto pt-8 px-4 mb-8 text-white text-center">KUDOS TO BASTARD GAN PUNKS COMMUNITY FOR THEIR HARD WORK TO PREPARE TRAITS. U R AWESOME! ❤️</p>
 
             </div>
     )
