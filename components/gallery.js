@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react"
 import Card from "./card.js"
 import Card2 from "./card2.js"
-import LazyLoad from 'react-lazyload';
+// import LazyLoad from 'react-lazyload';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 
