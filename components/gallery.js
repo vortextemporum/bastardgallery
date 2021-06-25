@@ -17,6 +17,7 @@ export default function Gallery({
   bastardTypeFilter,
   backgroundFilter,
   facingDirectionFilter,
+  badHabitFilter,
   searchBar,
   indices,
   setIndices
@@ -50,8 +51,10 @@ export default function Gallery({
       (songWordCountFilter === 'ALL' ? bastard : bastard.attributes[2].value === songWordCountFilter) &&
       (bastardTypeFilter === 'ALL' ? bastard : bastard.attributes[0].value === "CALM AF (STILL)" && bastard.attributes[3].value === bastardTypeFilter) &&
       (backgroundFilter === 'ALL' ? bastard : bastard.attributes[0].value === "CALM AF (STILL)" && bastard.attributes[4].value === backgroundFilter) &&
-      (facingDirectionFilter === 'ALL' ? bastard : bastard.attributes[0].value === "CALM AF (STILL)" && bastard.attributes[5].value === facingDirectionFilter) ) )
-    }, [hypeStatusFilter, bastardnessFilter, songWordCountFilter, bastardTypeFilter, backgroundFilter, facingDirectionFilter]);  
+      (facingDirectionFilter === 'ALL' ? bastard : bastard.attributes[0].value === "CALM AF (STILL)" && bastard.attributes[5].value === facingDirectionFilter) &&
+      (badHabitFilter === 'ALL' ? bastard : bastard.attributes[0].value === "CALM AF (STILL)" && bastard.attributes[6].value === badHabitFilter) 
+      ) )
+    }, [hypeStatusFilter, bastardnessFilter, songWordCountFilter, bastardTypeFilter, backgroundFilter, facingDirectionFilter, badHabitFilter]);  
   
 
     return (

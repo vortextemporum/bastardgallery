@@ -92,6 +92,12 @@ export default function Card({ bas }) {
             <span className="text-sm py-1 font-bold">{bas.attributes[5].value}</span>
 
           </div>
+          <div className="bg-yellow-200 p-2 flex justify-between">
+            {/* <p className="text-sm underline font-bold">BASTARDNESS:</p>  */}
+            <span className="text-sm py-1 font-bold">BAD HABIT(S):</span>
+            <span className="text-sm py-1 font-bold">{bas.attributes[6].value}</span>
+
+          </div>
 
 
         </div> : <></>

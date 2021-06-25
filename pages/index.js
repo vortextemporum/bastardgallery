@@ -18,6 +18,7 @@ export default function Home() {
   const [bastardTypeCounts,setBastardTypeCounts] = useState({})
   const [backgroundCounts,setBackgroundCounts] = useState({})
   const [facingDirectionCounts,setFacingDirectionCounts] = useState({})
+  const [badHabitCounts, setBadHabitCounts] = useState({})
 
   const [totalSupply,setTotalSupply] = useState({})
   
@@ -35,6 +36,7 @@ export default function Home() {
   const [bastardTypeFilter, setBastardTypeFilter] = useState("ALL")
   const [backgroundFilter, setBackgroundFilter] = useState("ALL")
   const [facingDirectionFilter, setFacingDirectionFilter] = useState("ALL")
+  const [badHabitFilter, setBadHabitFilter] = useState("ALL")
 
   const [indices, setIndices] = useState([]);
 
@@ -51,6 +53,7 @@ export default function Home() {
         let bastardtypecountdict = {}
         let backgroundcountdict = {}
         let facingdirectiondict = {}
+        let badhabitsdict = {}
         data.map(b => {
           if (b.attributes[0].value in hypetypecountdict) {
             hypetypecountdict[b.attributes[0].value].push(b.tokenId);
@@ -96,6 +99,13 @@ export default function Home() {
               facingdirectiondict[b.attributes[5].value] = [];
               facingdirectiondict[b.attributes[5].value].push(b.tokenId)
             }
+            if (b.attributes[6].value in badhabitsdict) {
+              badhabitsdict[b.attributes[6].value].push(b.tokenId);
+            } else
+            {
+              badhabitsdict[b.attributes[6].value] = [];
+              badhabitsdict[b.attributes[6].value].push(b.tokenId)
+            }
           }
         })
         setHypeTypeCounts(hypetypecountdict)
@@ -104,6 +114,7 @@ export default function Home() {
         setBastardTypeCounts(bastardtypecountdict)
         setBackgroundCounts(backgroundcountdict)
         setFacingDirectionCounts(facingdirectiondict)
+        setBadHabitCounts(badhabitsdict)
 
         
         
@@ -129,6 +140,7 @@ export default function Home() {
         let bastardtypecountdict = {}
         let backgroundcountdict = {}
         let facingdirectiondict = {}
+        let badhabitsdict = {}
         indices.map(b => {
           if (b.attributes[0].value in hypetypecountdict) {
             hypetypecountdict[b.attributes[0].value].push(b.tokenId);
@@ -174,6 +186,13 @@ export default function Home() {
               facingdirectiondict[b.attributes[5].value] = [];
               facingdirectiondict[b.attributes[5].value].push(b.tokenId)
             }
+            if (b.attributes[6].value in badhabitsdict) {
+              badhabitsdict[b.attributes[6].value].push(b.tokenId);
+            } else
+            {
+              badhabitsdict[b.attributes[6].value] = [];
+              badhabitsdict[b.attributes[6].value].push(b.tokenId)
+            }
           }
         })
         setHypeTypeCounts(hypetypecountdict)
@@ -182,7 +201,7 @@ export default function Home() {
         setBastardTypeCounts(bastardtypecountdict)
         setBackgroundCounts(backgroundcountdict)
         setFacingDirectionCounts(facingdirectiondict)
-  
+        setBadHabitCounts(badhabitsdict)  
       }
       ,[indices])  
 
@@ -236,6 +255,7 @@ export default function Home() {
         bastardTypeCounts={bastardTypeCounts}
         backgroundCounts={backgroundCounts}
         facingDirectionCounts={facingDirectionCounts}
+        badHabitCounts={badHabitCounts}
         setv1v2={setv1v2}
         setV1Generation={setV1Generation}
         setBastardnessFilter={setBastardnessFilter}
@@ -244,6 +264,7 @@ export default function Home() {
         setBastardTypeFilter={setBastardTypeFilter}
         setBackgroundFilter={setBackgroundFilter}
         setFacingDirectionFilter={setFacingDirectionFilter}
+        setBadHabitFilter={setBadHabitFilter}
 
         bastardnessFilter={bastardnessFilter}
         hypeStatusFilter={hypeStatusFilter}
@@ -251,6 +272,7 @@ export default function Home() {
         bastardTypeFilter={bastardTypeFilter}
         backgroundFilter={backgroundFilter}
         facingDirectionFilter={facingDirectionFilter}
+        badHabitFilter={badHabitFilter}
 
         setSearchbar={setSearchbar}
         totalSupply={totalSupply}
@@ -265,6 +287,7 @@ export default function Home() {
         bastardTypeFilter={bastardTypeFilter}
         backgroundFilter={backgroundFilter}
         facingDirectionFilter={facingDirectionFilter}
+        badHabitFilter={badHabitFilter}
         searchBar={searchBar}
         indices={indices}
         setIndices={setIndices}
